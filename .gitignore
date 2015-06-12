@@ -1,0 +1,9 @@
+.idea
+node_modules
+atlassian-ide-plugin.xml
+npm-debug.log
+.vagrant/
+dist/
+coverage/
+.iml
+.DS_Store

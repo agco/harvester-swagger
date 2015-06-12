@@ -1,0 +1,208 @@
+{
+  "apiVersion": "0.0.1",
+  "swaggerVersion": "1.2.5",
+  "basePath": "",
+  "apis": [
+    {
+      "path": "/user/{id}",
+      "operations": [
+        {
+          "httpMethod": "GET",
+          "summary": "get a user by user id",
+          "nickname": "User",
+          "consumes": [
+            "application/json"
+          ],
+          "produces": [
+            "application/json"
+          ],
+          "parameters": [
+            {
+              "name": "id",
+              "description": "A id",
+              "paramType": "path",
+              "required": true,
+              "dataType": "String"
+            },
+            {
+              "name": "token",
+              "description": "A token",
+              "paramType": "header",
+              "required": true,
+              "dataType": "Number"
+            },
+            {
+              "name": "profile",
+              "description": "A profile",
+              "paramType": "query",
+              "required": true,
+              "dataType": "Bool"
+            }
+          ],
+          "responseMessages": [
+            {
+              "code": 500,
+              "message": "Internal server error"
+            },
+            {
+              "code": 400,
+              "message": "Bad request"
+            },
+            {
+              "code": 404,
+              "message": "Not found"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "path": "/user",
+      "operations": [
+        {
+          "httpMethod": "POST",
+          "summary": "Post a user",
+          "nickname": "User",
+          "consumes": [
+            "application/json"
+          ],
+          "produces": [
+            "application/json"
+          ],
+          "parameters": [
+            {
+              "name": "token",
+              "description": "A token",
+              "paramType": "header",
+              "required": true,
+              "dataType": "Number"
+            },
+            {
+              "name": "body",
+              "description": "A User",
+              "paramType": "body",
+              "required": true,
+              "dataType": "UserPost"
+            }
+          ],
+          "responseMessages": []
+        }
+      ]
+    },
+    {
+      "path": "/user/{id}",
+      "operations": [
+        {
+          "httpMethod": "DELETE",
+          "summary": "Delete a user",
+          "nickname": "User",
+          "consumes": [
+            "application/json"
+          ],
+          "produces": [
+            "application/json"
+          ],
+          "parameters": [
+            {
+              "name": "id",
+              "description": "A id",
+              "paramType": "path",
+              "required": true,
+              "dataType": "String"
+            },
+            {
+              "name": "token",
+              "description": "A token",
+              "paramType": "header",
+              "required": true,
+              "dataType": "Number"
+            }
+          ],
+          "responseMessages": []
+        }
+      ]
+    },
+    {
+      "path": "/user/{id}",
+      "operations": [
+        {
+          "httpMethod": "PUT",
+          "summary": "Put a user",
+          "nickname": "User",
+          "consumes": [
+            "application/json"
+          ],
+          "produces": [
+            "application/json"
+          ],
+          "parameters": [
+            {
+              "name": "id",
+              "description": "A id",
+              "paramType": "path",
+              "required": true,
+              "dataType": "String"
+            },
+            {
+              "name": "token",
+              "description": "A token",
+              "paramType": "header",
+              "required": true,
+              "dataType": "Number"
+            },
+            {
+              "name": "body",
+              "description": "A User/:id",
+              "paramType": "body",
+              "required": true,
+              "dataType": "User/:idPut"
+            }
+          ],
+          "responseMessages": []
+        }
+      ]
+    }
+  ],
+  "models": {
+    "UserPostItem": {
+      "properties": {
+        "username": {
+          "type": "String"
+        },
+        "name": {
+          "type": "String"
+        }
+      }
+    },
+    "UserPost": {
+      "properties": {
+        "cats": {
+          "type": "Array",
+          "items": {
+            "$ref": "UserPostItem"
+          }
+        }
+      }
+    },
+    "User/:idPutItem": {
+      "properties": {
+        "username": {
+          "type": "String"
+        },
+        "name": {
+          "type": "String"
+        }
+      }
+    },
+    "User/:idPut": {
+      "properties": {
+        "cats": {
+          "type": "Array",
+          "items": {
+            "$ref": "User/:idPutItem"
+          }
+        }
+      }
+    }
+  }
+}
