@@ -83,7 +83,7 @@ var routes = [
 ];
 
 //create swagger json files
-// swagger.generate(routes, '/example/swagger/', '0.1.5');
+swagger.generate(routes, '/example/swagger/', '0.1.5');
 
 //serve json swagger files
 swagger.resources(app, {
